@@ -54,7 +54,7 @@ footer a{color:rgba(255,255,255,.6)}
 
 <div class="wrap">
   <div class="card">
-    <p class="lead">一発ピン（以下「本アプリ」）は、ユーザーのプライバシーを最優先に設計されています。本アプリはアカウント登録を必要とせず、入力されたデータは原則として端末内にのみ保存され、当社のサーバーには送信されません。</p>
+    <p class="lead">一発ピン（以下「本アプリ」）は、<b>自社サーバーを持たない完全ローカル設計</b>で、プライバシーを最優先にしています。アカウント登録は不要で、撮影画像・住所・名前・メモなどのデータは端末内にのみ保存され、当社が収集・アップロード・保管することはありません。</p>
 
     <h2>1. 取得・利用する情報</h2>
     <ul>
@@ -63,15 +63,19 @@ footer a{color:rgba(255,255,255,.6)}
       <li><b>住所・名前・メモなどの入力データ</b>：ピン管理のため、端末内（SQLite）に保存します。</li>
     </ul>
 
-    <h2>2. 地図サービスへの送信</h2>
-    <p>住所を地図に表示するため、住所情報はジオコーディングおよび地図表示の目的で Google Maps Platform に送信されます。これらの情報の取り扱いは Google のプライバシーポリシーに従います。</p>
-    <p><a href="https://policies.google.com/privacy" target="_blank" rel="noopener">https://policies.google.com/privacy</a></p>
+    <h2>2. ネットワークの利用（地図・座標変換・ナビ）</h2>
+    <p>本アプリが外部と通信するのは次の場合のみで、いずれも<b>当社サーバーを経由しません</b>。</p>
+    <ul>
+      <li><b>住所→座標の変換（ジオコーディング）</b>：住所文字列を端末OSの標準地図機能（iOSはApple、Androidは端末の地図サービス）に渡します。</li>
+      <li><b>地図の表示</b>：国土地理院の地図タイル（cyberjapandata.gsi.go.jp）を取得します。</li>
+      <li><b>ナビ（ルート案内）</b>：ボタンを押したときのみ、Google マップまたは Apple マップが起動します。</li>
+    </ul>
 
     <h2>3. 当社サーバーへの送信について</h2>
     <p>本アプリは独自のサーバーを持たず、ユーザーが入力したデータを当社が収集・保管することはありません。データはユーザーの端末内に保存されます。</p>
 
     <h2>4. 第三者提供</h2>
-    <p>当社は、地図表示に必要な上記 Google Maps Platform を除き、ユーザーの情報を第三者に提供・販売することはありません。</p>
+    <p>当社はバックエンドサーバーを持たず、ユーザーのデータを収集・保管しません。上記2のネットワーク利用（端末OSの地図機能・国土地理院のタイル取得・ナビ起動）を除き、ユーザーの情報を第三者に提供・販売することはありません。</p>
 
     <h2>5. データの削除</h2>
     <p>アプリ内でフォルダ・ピンを個別に削除できます。また、本アプリをアンインストールすると、端末内に保存されたすべてのデータが削除されます。</p>
@@ -89,8 +93,8 @@ footer a{color:rgba(255,255,255,.6)}
       <h2>Privacy Policy (English)</h2>
       <p>IppatsuPin (the “App”) is designed with privacy first. The App requires no account, and the data you enter is stored only on your device — it is never sent to our servers.</p>
       <p><b>Information used:</b> Camera images are used for on-device address recognition (OCR); images are not sent externally. Photo access is used to pick CSV/images. Addresses, names, and notes you enter are stored locally on your device (SQLite).</p>
-      <p><b>Maps:</b> To display addresses on a map, address data is sent to Google Maps Platform for geocoding and display, governed by Google’s Privacy Policy (policies.google.com/privacy).</p>
-      <p><b>No servers / no third parties:</b> We operate no backend and do not collect or store your data. Except for Google Maps Platform required for map display, we do not share or sell your information.</p>
+      <p><b>Maps &amp; network:</b> The app uses the network only to (1) geocode addresses via your device’s built-in OS geocoder (Apple on iOS; the device map service on Android), (2) load map tiles from GSI Japan (cyberjapandata.gsi.go.jp), and (3) open Google or Apple Maps when you tap Navigate. None of this passes through our servers.</p>
+      <p><b>No servers / no third parties:</b> We operate no backend and do not collect or store your data. Except for the OS geocoder, GSI map tiles, and external maps for navigation described above, we do not share or sell your information.</p>
       <p><b>Deletion:</b> You can delete folders and pins in the App. Uninstalling the App deletes all locally stored data.</p>
       <p><b>Contact:</b> <a href="mailto:takezodayone@gmail.com">takezodayone@gmail.com</a></p>
     </div>

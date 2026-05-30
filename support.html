@@ -98,10 +98,10 @@ footer a{color:rgba(255,255,255,.6)}
         <tr><th>料金</th><td>完全無料（広告なし・アプリ内課金なし。全機能を無料で利用できます）</td></tr>
         <tr><th>対応OS</th><td>iOS / Android</td></tr>
         <tr><th>取込できるデータ</th><td>カメラ撮影（OCR）／ CSVファイル</td></tr>
-        <tr><th>地図</th><td>Google マップ（住所のジオコーディング・ピン表示・ナビ連携）</td></tr>
+        <tr><th>地図</th><td>アプリ内の地図は国土地理院タイルを表示。住所→座標の変換は端末OSの地図機能。ナビ（ルート案内）は Google マップ／Apple マップを起動</td></tr>
         <tr><th>オフライン</th><td>一度読み込んだ住所は、電波がなくても参照できます</td></tr>
         <tr><th>データの保存場所</th><td>すべて端末内に保存（当社サーバーには送信しません）</td></tr>
-        <tr><th>必要な権限</th><td>カメラ（撮影・OCR）／ 写真（画像の選択）／ インターネット（地図表示）／ 通知</td></tr>
+        <tr><th>必要な権限</th><td>カメラ（撮影・OCR）／ 写真（画像の選択）／ インターネット（地図タイル取得・住所の座標変換）／ 位置情報（地図に現在地表示）／ 通知</td></tr>
       </table>
     </div>
   </section>
@@ -116,7 +116,9 @@ footer a{color:rgba(255,255,255,.6)}
         <dt>住所がうまく読み取れません。</dt>
         <dd>明るい場所で、文字がまっすぐ・大きく写るように撮影してください。手書きや特殊なフォントは読み取りにくい場合があります。その場合は読み取り後に手で修正できます。</dd>
         <dt>読み取った住所はどこに保存されますか？</dt>
-        <dd>すべてお使いの端末の中に保存されます。当社のサーバーには送信しません。地図表示のため、住所はGoogle マップに送られます。</dd>
+        <dd>すべてお使いの端末の中に保存され、当社サーバーには送信しません（自社サーバーを持たない完全ローカル設計）。住所→座標の変換のみ端末OSの地図機能を利用し、地図は国土地理院のタイルを表示します。</dd>
+        <dt>情報漏洩が心配です。大丈夫ですか？</dt>
+        <dd>自社サーバーを持たないため、撮影画像・名簿・メモを当社が収集・アップロードすることはありません。データは端末内にのみ保存されます。外部通信は「住所→座標の変換（端末OSの地図機能）」と「地図タイルの取得（国土地理院）」に限られます。</dd>
         <dt>データを消したいです。</dt>
         <dd>アプリ内でフォルダやピンを個別に削除できます。アプリ自体を削除すると、保存されたデータもすべて消えます。</dd>
         <dt>CSVの形式に決まりはありますか？</dt>
@@ -140,11 +142,11 @@ footer a{color:rgba(255,255,255,.6)}
     <div class="section-label">English</div>
     <h2>Help &amp; Support</h2>
     <h3>How to use</h3>
-    <p><b>From a photo:</b> Tap “Camera”, photograph your address list, check/fix the auto-detected addresses, then tap “Create Pins” to show them all on Google Maps.</p>
+    <p><b>From a photo:</b> Tap “Camera”, photograph your address list, check/fix the auto-detected addresses, then tap “Create Pins” to show them all on the map.</p>
     <p><b>From CSV:</b> Tap “Import CSV”, choose your file, map which column is the address, and the pins appear on the map.</p>
     <p><b>Map &amp; navigation:</b> Tap a pin to see its details, then “Navigate” to start route guidance. Mark visits as done. Organize pins into folders by customer, date, or area.</p>
     <h3>Specs</h3>
-    <p>Completely free (no ads, no in-app purchases). iOS / Android. Imports via camera OCR or CSV. Uses Google Maps. Data is stored only on your device. Works offline for already-loaded addresses.</p>
+    <p>Completely free (no ads, no in-app purchases). iOS / Android. Imports via camera OCR or CSV. In-app map uses GSI Japan tiles; geocoding uses your device’s OS; navigation opens Google or Apple Maps. No backend — your data stays only on your device. Works offline for already-loaded addresses.</p>
     <h3>Contact</h3>
     <p>Email: <a href="mailto:takezodayone@gmail.com">takezodayone@gmail.com</a></p>
   </section>
