@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>一発ピン — 使い方・サポート</title>
+<meta name="description" content="一発ピンの使い方、仕様、よくある質問。住所リストを撮るだけで地図にピン表示。">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--ink:#0a1628;--muted:#4a6080;--bg:#f2f6fb;--blue:#1565c0;--blue-lt:#e3f0ff;--cyan:#00acc1;--card:#fff;--line:#dde6f0}
+body{font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Yu Gothic","Noto Sans JP",sans-serif;background:var(--bg);color:var(--ink);line-height:1.8}
+a{color:var(--blue);text-decoration:none}
+.wrap{max-width:860px;margin:0 auto;padding:0 24px}
+header{background:#0a1628;color:#fff;padding:0 24px}
+.hdr{max-width:860px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:56px;gap:12px}
+.hdr-logo{font-weight:900;font-size:15px;color:#fff}
+.hdr-nav{display:flex;gap:6px;flex-wrap:wrap}
+.hdr-nav a{font-size:13px;padding:5px 12px;border-radius:999px;border:1px solid rgba(255,255,255,.22);color:rgba(255,255,255,.85)}
+.hero{background:linear-gradient(160deg,#0a1628 55%,#1565c0 100%);color:#fff;padding:56px 24px;text-align:center}
+.hero h1{font-size:clamp(28px,6vw,48px);font-weight:900;letter-spacing:-.04em}
+.hero p{color:rgba(255,255,255,.78);margin-top:10px}
+.section{padding:44px 0}
+.section-label{font-size:12px;font-weight:700;letter-spacing:.15em;color:var(--cyan);text-transform:uppercase;margin-bottom:8px}
+h2{font-size:clamp(22px,4vw,32px);font-weight:900;letter-spacing:-.03em;margin-bottom:18px}
+h3{font-size:17px;font-weight:800;color:var(--blue);margin:22px 0 6px}
+p{color:var(--muted);margin-bottom:10px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:24px 28px;box-shadow:0 4px 20px rgba(10,22,40,.06);margin-bottom:16px}
+.step{display:flex;gap:16px;padding:16px 0;border-bottom:1px solid var(--line)}
+.step:last-child{border-bottom:none}
+.step-no{flex:0 0 36px;height:36px;border-radius:50%;background:var(--blue);color:#fff;font-weight:900;display:flex;align-items:center;justify-content:center}
+.step-body h4{font-size:15px;font-weight:800;margin-bottom:4px;color:var(--ink)}
+.step-body p{margin:0;font-size:14px}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+th{color:var(--ink);width:34%;font-weight:700}
+td{color:var(--muted)}
+.faq dt{font-weight:800;color:var(--ink);margin-top:16px}
+.faq dd{color:var(--muted);margin:4px 0 0}
+.en{border-top:2px dashed var(--line);margin-top:24px;padding-top:20px}
+.en h2,.en h3{color:var(--ink)}
+footer{background:#0a1628;color:rgba(255,255,255,.45);padding:28px 24px;font-size:13px;text-align:center}
+footer a{color:rgba(255,255,255,.6)}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="hdr">
+    <div class="hdr-logo">📍 一発ピン / IppatsuPin</div>
+    <nav class="hdr-nav">
+      <a href="index.html">日本語</a>
+      <a href="en.html">English</a>
+      <a href="support.html">サポート</a>
+      <a href="privacy.html">プライバシー</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <h1>使い方・サポート</h1>
+  <p>住所リストを撮るだけ。3ステップで地図にピンが立ちます。</p>
+</section>
+
+<div class="wrap">
+
+  <section class="section">
+    <div class="section-label">How to use</div>
+    <h2>基本の使い方</h2>
+
+    <div class="card">
+      <h3>📷 写真からPINを作る</h3>
+      <div class="step"><div class="step-no">1</div><div class="step-body"><h4>「資料を撮影」または「写真から読み取り」</h4><p>「読取」タブで<b>「資料を撮影」</b>を押してA4の住所リストをカメラで撮るか、<b>「写真から読み取り」</b>で保存済み画像を選びます。明るい場所で文字がまっすぐ写るときれいに読み取れます。</p></div></div>
+      <div class="step"><div class="step-no">2</div><div class="step-body"><h4>読み取り結果を確認・住所補完</h4><p>AIが住所を自動で読み取ります。間違いはその場で修正でき、「都道府県」「市区町村」などの<b>住所補完</b>もできます。<b>フォルダ名</b>もここで設定します。</p></div></div>
+      <div class="step"><div class="step-no">3</div><div class="step-body"><h4>「PINを作成」</h4><p><b>「PINを作成」</b>を押すと住所が地図用の座標に変換され、PINマップに登録されます。</p></div></div>
+    </div>
+
+    <div class="card">
+      <h3>📊 CSVからPINを作る</h3>
+      <div class="step"><div class="step-no">1</div><div class="step-body"><h4>「CSVからPIN作成」</h4><p>「読取」タブの<b>「CSVからPIN作成」</b>を選び、顧客管理ツールやExcelから書き出したCSVファイル（住所リスト）を選びます。</p></div></div>
+      <div class="step"><div class="step-no">2</div><div class="step-body"><h4>内容を確認</h4><p>取り込んだ住所を確認・補完して、フォルダ名を設定します。</p></div></div>
+      <div class="step"><div class="step-no">3</div><div class="step-body"><h4>PINマップに登録</h4><p>住所がまとめて座標に変換され、地図にPIN表示されます。</p></div></div>
+    </div>
+
+    <div class="card">
+      <h3>📍 PINマップ・ルート案内・訪問管理</h3>
+      <p><b>「保存したMAP」</b>タブから作成したマップを開けます。地図上のPINをタップすると住所・メモが表示され、<b>ルート案内</b>ボタンでお使いの地図アプリにナビを引き継げます。座標が取れなかった住所は、タップして修正できます。</p>
+      <p>各PINには<b>訪問ステータス</b>（未訪問／作業中／訪問済み／不在／要確認）を設定でき、<b>訪問ログ</b>の記録や<b>再訪問アラート</b>（通知予約）も可能です。</p>
+      <h3>💾 仲間に配布（Googleマップ用バックアップ）</h3>
+      <p><b>「バックアップ」</b>タブの<b>「Googleマップ用データ作成」</b>で、座標付きPINをファイルに書き出して共有できます。チームの仲間に配布して同じピンを共有できます。</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-label">Specifications</div>
+    <h2>仕様</h2>
+    <div class="card">
+      <table>
+        <tr><th>料金</th><td>完全無料（広告なし・アプリ内課金なし。全機能を無料で利用できます）</td></tr>
+        <tr><th>対応OS</th><td>iOS / Android</td></tr>
+        <tr><th>取込できるデータ</th><td>カメラ撮影（OCR）／ CSVファイル</td></tr>
+        <tr><th>地図</th><td>Google マップ（住所のジオコーディング・ピン表示・ナビ連携）</td></tr>
+        <tr><th>オフライン</th><td>一度読み込んだ住所は、電波がなくても参照できます</td></tr>
+        <tr><th>データの保存場所</th><td>すべて端末内に保存（当社サーバーには送信しません）</td></tr>
+        <tr><th>必要な権限</th><td>カメラ（撮影・OCR）／ 写真（画像の選択）／ インターネット（地図表示）／ 通知</td></tr>
+      </table>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-label">FAQ</div>
+    <h2>よくある質問</h2>
+    <div class="card faq">
+      <dl>
+        <dt>本当に無料ですか？</dt>
+        <dd>はい。すべての機能を完全無料でご利用いただけます。広告も、アプリ内課金もありません。</dd>
+        <dt>住所がうまく読み取れません。</dt>
+        <dd>明るい場所で、文字がまっすぐ・大きく写るように撮影してください。手書きや特殊なフォントは読み取りにくい場合があります。その場合は読み取り後に手で修正できます。</dd>
+        <dt>読み取った住所はどこに保存されますか？</dt>
+        <dd>すべてお使いの端末の中に保存されます。当社のサーバーには送信しません。地図表示のため、住所はGoogle マップに送られます。</dd>
+        <dt>データを消したいです。</dt>
+        <dd>アプリ内でフォルダやピンを個別に削除できます。アプリ自体を削除すると、保存されたデータもすべて消えます。</dd>
+        <dt>CSVの形式に決まりはありますか？</dt>
+        <dd>住所の列があれば取り込めます。読み込み時に「どの列が住所か」を指定するだけでOKです。</dd>
+        <dt>要望・不具合の連絡先は？</dt>
+        <dd>下記のお問い合わせ先までご連絡ください。いただいた声をもとに改善していきます。</dd>
+      </dl>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-label">Contact</div>
+    <h2>お問い合わせ</h2>
+    <div class="card">
+      <p>ご質問・ご要望・不具合のご連絡は、こちらまでお願いします。</p>
+      <p><b>メール：</b><a href="mailto:takezodayone@gmail.com">takezodayone@gmail.com</a></p>
+    </div>
+  </section>
+
+  <section class="section en">
+    <div class="section-label">English</div>
+    <h2>Help &amp; Support</h2>
+    <h3>How to use</h3>
+    <p><b>From a photo:</b> Tap “Camera”, photograph your address list, check/fix the auto-detected addresses, then tap “Create Pins” to show them all on Google Maps.</p>
+    <p><b>From CSV:</b> Tap “Import CSV”, choose your file, map which column is the address, and the pins appear on the map.</p>
+    <p><b>Map &amp; navigation:</b> Tap a pin to see its details, then “Navigate” to start route guidance. Mark visits as done. Organize pins into folders by customer, date, or area.</p>
+    <h3>Specs</h3>
+    <p>Completely free (no ads, no in-app purchases). iOS / Android. Imports via camera OCR or CSV. Uses Google Maps. Data is stored only on your device. Works offline for already-loaded addresses.</p>
+    <h3>Contact</h3>
+    <p>Email: <a href="mailto:takezodayone@gmail.com">takezodayone@gmail.com</a></p>
+  </section>
+
+</div>
+
+<footer>
+  © 2026 一発ピン / IppatsuPin ・
+  <a href="index.html">ホーム</a> ・
+  <a href="privacy.html">プライバシーポリシー</a>
+</footer>
+
+</body>
+</html>

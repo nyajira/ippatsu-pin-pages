@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>一発ピン — 住所リストを地図に変換</title>
+<meta name="description" content="A4の住所リストを撮影するだけでGoogle マップにピン表示。営業・配達・巡回業務を劇的に効率化。">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --ink:#0a1628;--muted:#4a6080;--bg:#f2f6fb;
+  --blue:#1565c0;--blue-lt:#e3f0ff;--cyan:#00acc1;
+  --card:#fff;--line:#dde6f0;
+}
+body{font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Yu Gothic","Noto Sans JP",sans-serif;background:var(--bg);color:var(--ink);line-height:1.75}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:960px;margin:0 auto;padding:0 24px}
+
+/* ── Header ── */
+header{background:#0a1628;color:#fff;padding:0 24px}
+.hdr{max-width:960px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:56px;gap:12px}
+.hdr-logo{font-weight:900;font-size:15px;letter-spacing:.04em;color:#fff}
+.hdr-nav{display:flex;gap:6px;flex-wrap:wrap}
+.hdr-nav a{font-size:13px;padding:5px 12px;border-radius:999px;border:1px solid rgba(255,255,255,.22);color:rgba(255,255,255,.85)}
+.hdr-nav a:hover{background:rgba(255,255,255,.1)}
+
+/* ── Hero ── */
+.hero{background:linear-gradient(160deg,#0a1628 55%,#1565c0 100%);color:#fff;padding:72px 24px 60px;text-align:center;position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Ccircle cx='30' cy='30' r='1' fill='rgba(255,255,255,0.06)'/%3E%3C/svg%3E");pointer-events:none}
+.hero-badge{display:inline-block;padding:6px 14px;border:1px solid rgba(0,172,193,.5);border-radius:999px;font-size:13px;color:#80d8e8;margin-bottom:24px}
+.hero h1{font-size:clamp(36px,8vw,76px);font-weight:900;line-height:1.06;letter-spacing:-.05em;margin-bottom:20px}
+.hero h1 em{font-style:normal;color:#4dd0e1}
+.hero-sub{font-size:clamp(16px,2.2vw,22px);color:rgba(255,255,255,.78);max-width:620px;margin:0 auto 32px}
+.btn-store{display:inline-block;padding:14px 28px;background:#00acc1;color:#fff;font-weight:800;font-size:15px;border-radius:999px;letter-spacing:.02em}
+
+/* ── Grid map decoration ── */
+.map-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:4px;max-width:340px;margin:40px auto 0;opacity:.35}
+.map-cell{height:36px;border-radius:4px;background:rgba(255,255,255,.12)}
+.map-cell.lit{background:#00acc1}
+
+/* ── Section ── */
+.section{padding:56px 0}
+.section-label{font-size:12px;font-weight:700;letter-spacing:.15em;color:var(--cyan);text-transform:uppercase;margin-bottom:8px}
+.section h2{font-size:clamp(24px,4vw,40px);font-weight:900;letter-spacing:-.03em;line-height:1.2;margin-bottom:20px}
+
+/* ── Feature grid ── */
+.feat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-top:32px}
+.feat{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:24px;box-shadow:0 4px 20px rgba(10,22,40,.06)}
+.feat-icon{font-size:28px;margin-bottom:12px}
+.feat h3{font-size:15px;font-weight:800;margin-bottom:6px;color:var(--blue)}
+.feat p{font-size:14px;color:var(--muted);line-height:1.6}
+
+/* ── Quote band ── */
+.band{background:var(--blue);color:#fff;padding:48px 24px;text-align:center}
+.band-q{font-size:clamp(22px,4vw,42px);font-weight:900;line-height:1.25;letter-spacing:-.04em}
+.band-q span{color:#4dd0e1}
+.band-sub{margin-top:12px;font-size:16px;opacity:.8}
+
+/* ── Steps ── */
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:0;counter-reset:step}
+.step{position:relative;padding:28px 24px;border-right:1px solid var(--line)}
+.step:last-child{border-right:none}
+.step::before{counter-increment:step;content:counter(step);position:absolute;top:24px;right:20px;font-size:48px;font-weight:900;color:var(--blue-lt);line-height:1}
+.step h3{font-size:15px;font-weight:800;margin-bottom:6px;color:var(--blue)}
+.step p{font-size:14px;color:var(--muted);line-height:1.6}
+
+/* ── Footer ── */
+footer{background:#0a1628;color:rgba(255,255,255,.45);padding:32px 24px;font-size:13px}
+.foot{max-width:960px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.foot-nav{display:flex;gap:16px}
+.foot-nav a{color:rgba(255,255,255,.55)}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="hdr">
+    <div class="hdr-logo">📍 一発ピン / IppatsuPin</div>
+    <nav class="hdr-nav">
+      <a href="index.html">日本語</a>
+      <a href="en.html">English</a>
+      <a href="support.html">サポート</a>
+      <a href="privacy.html">プライバシー</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-badge">📷 OCR + Google Maps</div>
+  <h1>住所リストを<br><em>撮るだけ</em>。</h1>
+  <p class="hero-sub">A4の顧客リストをカメラで撮影するだけで、Google マップに一括ピン表示。手入力ゼロ。</p>
+  <a class="btn-store" href="#">App Store でダウンロード</a>
+  <div class="map-grid">
+    <div class="map-cell"></div><div class="map-cell lit"></div><div class="map-cell"></div><div class="map-cell lit"></div><div class="map-cell"></div>
+    <div class="map-cell lit"></div><div class="map-cell"></div><div class="map-cell"></div><div class="map-cell"></div><div class="map-cell lit"></div>
+    <div class="map-cell"></div><div class="map-cell"></div><div class="map-cell lit"></div><div class="map-cell"></div><div class="map-cell"></div>
+    <div class="map-cell lit"></div><div class="map-cell"></div><div class="map-cell"></div><div class="map-cell lit"></div><div class="map-cell"></div>
+    <div class="map-cell"></div><div class="map-cell lit"></div><div class="map-cell"></div><div class="map-cell"></div><div class="map-cell lit"></div>
+  </div>
+</section>
+
+<div class="band">
+  <p class="band-q">住所入力に<span>費やす時間</span>、<br>今日で終わりにしませんか。</p>
+  <p class="band-sub">営業・配達・巡回すべての現場で使える、シンプルな地図ツール。</p>
+</div>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-label">Features</div>
+    <h2>現場で必要な機能だけ。</h2>
+    <div class="feat-grid">
+      <div class="feat"><div class="feat-icon">📷</div><h3>OCR住所読取</h3><p>A4資料を撮影するだけ。日本語の住所をAIが自動認識。縦書き・略称にも対応。</p></div>
+      <div class="feat"><div class="feat-icon">📊</div><h3>CSV取込</h3><p>顧客管理ツールのCSVをそのまま取込。列の役割を自由にマッピング。</p></div>
+      <div class="feat"><div class="feat-icon">📍</div><h3>一括ピン表示</h3><p>全住所をGoogle マップにまとめて表示。タップ一発でナビ起動。</p></div>
+      <div class="feat"><div class="feat-icon">📁</div><h3>フォルダ管理</h3><p>顧客名・日付・エリアでフォルダ分け。訪問済み・未訪問のステータス管理。</p></div>
+      <div class="feat"><div class="feat-icon">✈️</div><h3>オフライン対応</h3><p>一度読み込んだ住所はオフラインでも参照可能。電波が不安定な現場でも安心。</p></div>
+      <div class="feat"><div class="feat-icon">🆓</div><h3>完全無料</h3><p>広告なし・課金なし。現場のツールとして無料で提供しています。</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="background:var(--card);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="wrap">
+    <div class="section-label">How it works</div>
+    <h2>3ステップで完了。</h2>
+    <div class="steps">
+      <div class="step"><h3>撮影 or CSV取込</h3><p>A4リストをカメラで撮るか、CSVをインポートする。</p></div>
+      <div class="step"><h3>確認・修正</h3><p>読み取り結果を確認して、必要なら修正。フォルダ名を設定。</p></div>
+      <div class="step"><h3>地図に表示</h3><p>「PINを作成」を押すだけ。全住所が地図にピン表示される。</p></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="foot">
+    <div>© 2026 一発ピン / IppatsuPin</div>
+    <nav class="foot-nav">
+      <a href="privacy.html">プライバシーポリシー</a>
+      <a href="support.html">サポート</a>
+      <a href="en.html">English</a>
+    </nav>
+  </div>
+</footer>
+
+</body>
+</html>

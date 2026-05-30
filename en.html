@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>IppatsuPin — Scan address lists, pin them instantly</title>
+<meta name="description" content="Photograph or import address lists and instantly pin them on Google Maps. Built for sales and delivery.">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--ink:#0a1628;--muted:#4a6080;--bg:#f2f6fb;--blue:#1565c0;--blue-lt:#e3f0ff;--cyan:#00acc1;--card:#fff;--line:#dde6f0}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:var(--bg);color:var(--ink);line-height:1.75}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:960px;margin:0 auto;padding:0 24px}
+header{background:#0a1628;color:#fff;padding:0 24px}
+.hdr{max-width:960px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:56px;gap:12px}
+.hdr-logo{font-weight:900;font-size:15px;letter-spacing:.04em;color:#fff}
+.hdr-nav{display:flex;gap:6px;flex-wrap:wrap}
+.hdr-nav a{font-size:13px;padding:5px 12px;border-radius:999px;border:1px solid rgba(255,255,255,.22);color:rgba(255,255,255,.85)}
+.hero{background:linear-gradient(160deg,#0a1628 55%,#1565c0 100%);color:#fff;padding:72px 24px 60px;text-align:center}
+.hero-badge{display:inline-block;padding:6px 14px;border:1px solid rgba(0,172,193,.5);border-radius:999px;font-size:13px;color:#80d8e8;margin-bottom:24px}
+h1{font-size:clamp(36px,8vw,76px);font-weight:900;line-height:1.06;letter-spacing:-.05em;margin-bottom:20px}
+h1 em{font-style:normal;color:#4dd0e1}
+.hero-sub{font-size:clamp(16px,2.2vw,22px);color:rgba(255,255,255,.78);max-width:620px;margin:0 auto 32px}
+.btn-store{display:inline-block;padding:14px 28px;background:#00acc1;color:#fff;font-weight:800;font-size:15px;border-radius:999px}
+.band{background:var(--blue);color:#fff;padding:48px 24px;text-align:center}
+.band-q{font-size:clamp(22px,4vw,42px);font-weight:900;line-height:1.25;letter-spacing:-.04em}
+.band-q span{color:#4dd0e1}
+.band-sub{margin-top:12px;font-size:16px;opacity:.8}
+.section{padding:56px 0}
+.section-label{font-size:12px;font-weight:700;letter-spacing:.15em;color:var(--cyan);text-transform:uppercase;margin-bottom:8px}
+.section h2{font-size:clamp(24px,4vw,40px);font-weight:900;letter-spacing:-.03em;line-height:1.2;margin-bottom:20px}
+.feat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-top:32px}
+.feat{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:24px;box-shadow:0 4px 20px rgba(10,22,40,.06)}
+.feat-icon{font-size:28px;margin-bottom:12px}
+.feat h3{font-size:15px;font-weight:800;margin-bottom:6px;color:var(--blue)}
+.feat p{font-size:14px;color:var(--muted);line-height:1.6}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:0;counter-reset:step}
+.step{position:relative;padding:28px 24px;border-right:1px solid var(--line)}
+.step:last-child{border-right:none}
+.step::before{counter-increment:step;content:counter(step);position:absolute;top:24px;right:20px;font-size:48px;font-weight:900;color:var(--blue-lt);line-height:1}
+.step h3{font-size:15px;font-weight:800;margin-bottom:6px;color:var(--blue)}
+.step p{font-size:14px;color:var(--muted);line-height:1.6}
+footer{background:#0a1628;color:rgba(255,255,255,.45);padding:32px 24px;font-size:13px}
+.foot{max-width:960px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.foot-nav{display:flex;gap:16px}
+.foot-nav a{color:rgba(255,255,255,.55)}
+</style>
+</head>
+<body>
+<header>
+  <div class="hdr">
+    <div class="hdr-logo">📍 一発ピン / IppatsuPin</div>
+    <nav class="hdr-nav">
+      <a href="index.html">日本語</a>
+      <a href="en.html">English</a>
+      <a href="support.html">Support</a>
+      <a href="privacy.html">Privacy</a>
+    </nav>
+  </div>
+</header>
+<section class="hero">
+  <div class="hero-badge">📷 OCR + Google Maps</div>
+  <h1>Snap the list.<br><em>Map it instantly.</em></h1>
+  <p class="hero-sub">Photograph any address list or import a CSV — IppatsuPin drops all addresses onto Google Maps in seconds. Zero manual entry.</p>
+  <a class="btn-store" href="#">Download on App Store</a>
+</section>
+<div class="band">
+  <p class="band-q">Stop <span>typing addresses</span>.<br>Start <span>visiting them</span>.</p>
+  <p class="band-sub">Built for sales reps, delivery drivers, and field workers who carry lists every day.</p>
+</div>
+<section class="section">
+  <div class="wrap">
+    <div class="section-label">Features</div>
+    <h2>Everything the field needs. Nothing it doesn't.</h2>
+    <div class="feat-grid">
+      <div class="feat"><div class="feat-icon">📷</div><h3>OCR Address Reading</h3><p>Photograph any A4 sheet. AI reads Japanese addresses automatically — vertical text, abbreviations included.</p></div>
+      <div class="feat"><div class="feat-icon">📊</div><h3>CSV Import</h3><p>Import directly from your CRM. Map columns to address, name, phone, or memo.</p></div>
+      <div class="feat"><div class="feat-icon">📍</div><h3>Bulk Map Pins</h3><p>All addresses pinned on Google Maps at once. Tap any pin to launch navigation.</p></div>
+      <div class="feat"><div class="feat-icon">📁</div><h3>Folder Management</h3><p>Organize by customer, date, or area. Track visited and unvisited pins.</p></div>
+      <div class="feat"><div class="feat-icon">✈️</div><h3>Offline Access</h3><p>Geocoded addresses stay accessible offline. Works even in poor signal areas.</p></div>
+      <div class="feat"><div class="feat-icon">🆓</div><h3>Completely Free</h3><p>No ads. No in-app purchases. A field tool that should be free.</p></div>
+    </div>
+  </div>
+</section>
+<section class="section" style="background:var(--card);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="wrap">
+    <div class="section-label">How it works</div>
+    <h2>Three steps. Done.</h2>
+    <div class="steps">
+      <div class="step"><h3>Snap or Import</h3><p>Photograph an A4 address list or import a CSV file.</p></div>
+      <div class="step"><h3>Review</h3><p>Check the detected rows, fix anything if needed, and set a folder name.</p></div>
+      <div class="step"><h3>Pin it</h3><p>Tap "Create Pins" — all addresses appear on Google Maps instantly.</p></div>
+    </div>
+  </div>
+</section>
+<footer>
+  <div class="foot">
+    <div>© 2026 一発ピン / IppatsuPin</div>
+    <nav class="foot-nav">
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="support.html">Support</a>
+      <a href="index.html">日本語</a>
+    </nav>
+  </div>
+</footer>
+</body>
+</html>
